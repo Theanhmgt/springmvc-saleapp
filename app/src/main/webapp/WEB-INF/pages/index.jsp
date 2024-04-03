@@ -31,9 +31,27 @@
                                 <a class="nav-link" href="#">${c.name}</a>
                             </li>
                         </c:forEach>
-                        </ul>
-                    </div>
+                    </ul>
                 </div>
-            </nav>
-        </body>
-    </html>
+            </div>
+        </nav>
+        <section class="container">
+            <div class="row">
+                <c:forEach items="${products}" var="p">
+                    <div class="col-md-3 col-12" style="padding: 1rem;">
+                        <div class="card">
+                            <img class="card-img-top" src="${p.image}" alt="${p.name}">
+                            <div class="card-body">
+                                <h4 class="card-title">${p.name}</h4>
+                                <p class="card-text">${p.price} VNĐ.</p>
+                                <a href="#" class="btn btn-primary">Xem chi tiết</a>
+                                <a href="#" class="btn btn-danger">Đặt hàng</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </c:forEach>
+            </div>
+        </section>
+    </body>
+</html>
