@@ -24,6 +24,7 @@ public class IndexController {
     
     @Autowired
     private ProductService prodService;
+    
     @RequestMapping("/")
     public String index(Model model,@RequestParam Map<String, String> params) {
         model.addAttribute("categories",this.categoryService.getCate());
