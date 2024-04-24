@@ -45,4 +45,11 @@ public class ProductServiceImpl implements ProductService{
         }
         this.prodRepo.addOrUpdate(p);
     }
+
+    @Override
+    public Product getProductById(int id) {
+        return this.prodRepo.getProductById(id);
+    }
+    
+    
 }

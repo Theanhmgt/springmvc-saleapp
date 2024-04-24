@@ -27,9 +27,9 @@
                 <td>${p.name}</td>
                 <td>${String.format("%,d", p.price)} VNĐ</td>                            
                 <td>
-                    <button class="btn btn-success">Cap nhap</button>                                
+                    <c:url value="/products/${p.id}" var="url" />
+                    <a href="${url}" class="btn btn-info">Cập nhật</a>                             
                     <button class="btn btn-success">Xoa</button>
-
                 </td>
 
             </tr>
