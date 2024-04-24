@@ -5,8 +5,12 @@
 package com.nta.controllers;
 
 import com.nta.pojo.Product;
+import com.nta.service.ProductService;
+import javax.validation.Valid;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,6 +21,8 @@ import org.springframework.web.bind.annotation.PostMapping;
  */
 @Controller
 public class ProductController {
+    @Autowired
+    private ProductService prodService;
     @GetMapping("/products")
     public String createView(Model model) {
         model.addAttribute("product", new Product());
@@ -24,8 +30,15 @@ public class ProductController {
     }
     
     @PostMapping("/products")
-    public String createProduct(@ModelAttribute(value = "product") Product p){
-            
+    public String createProduct(@ModelAttribute(value = "product") @Valid Product p,BindingResult rs){
+        if(!rs.hasErrors()) {
+            try{
+                this.prodService.addOrUpdate(p);
+                return "redirect:/";
+            }catch(Exception ex) {
+                System.out.println(ex.getMessage());
+            }
+        }
         return "products";
     }
 }

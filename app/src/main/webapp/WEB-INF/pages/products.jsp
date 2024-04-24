@@ -21,7 +21,7 @@
         <label for="name">Giá sản phẩm</label>
     </div>
     <div class="form-floating mb-3 mt-3">
-        <form:input type="file" class="form-control"  id="image" path="image" />
+        <form:input type="file" class="form-control"  id="image" path="file" />
         <label for="image">Ảnh sản phẩm</label>
         
         <c:if test="${product.id > 0}">

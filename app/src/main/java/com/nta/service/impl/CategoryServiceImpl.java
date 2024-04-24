@@ -24,4 +24,5 @@ public class CategoryServiceImpl implements CategoryService{
         return this.cateRepo.getCate();
     }
     
+    
 }
