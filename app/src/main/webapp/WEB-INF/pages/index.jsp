@@ -29,7 +29,7 @@
                 <td>
                     <c:url value="/products/${p.id}" var="url" />
                     <a href="${url}" class="btn btn-info">Cập nhật</a>                             
-                    <button class="btn btn-success">Xoa</button>
+                    <button onclick="deleteProduct('${url}',${p.id})" class="btn btn-danger">Xóa</button>
                 </td>
 
             </tr>
@@ -37,4 +37,6 @@
         </c:forEach>
     </tbody>
 </table>
+
+<script src="<c:url value="/js/script.js" />"></script>
 

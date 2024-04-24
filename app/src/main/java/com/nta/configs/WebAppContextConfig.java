@@ -20,7 +20,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.validation.Validator;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
-
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 /**
  *
  * @author admin
@@ -81,6 +81,11 @@ public class WebAppContextConfig implements WebMvcConfigurer {
                         "api_secret", "lZZWOntBPCDWEnECsmWIalOtl08",
                         "secure", true));
         return cloudinary;
+    }
+    
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("/js/**").addResourceLocations("/resources/js/");
     }
     
 //    @Bean
